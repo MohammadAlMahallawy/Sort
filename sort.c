@@ -18,20 +18,23 @@ void swap(int *n1, int *n2){
 
 int main(){
 int Array[] = {12,11,10,9,8};
+int iterationCount = 0;
 int size =(sizeof(Array) / sizeof(Array[0]));
 
 for (int i = 0; i < size; i++){
     printf("%d ", Array[i]);
 }
 printf("\n");
-for (int j = 0; j < size; j++)
-{
+    do{
+    iterationCount = 0;
     for (int i = 0; i < (size - 1); i++){
         if (compare(Array[i], Array[i+1])){
-           swap(&Array[i],&Array[i+1]);
-    }
-    }
-}
+            swap(&Array[i],&Array[i+1]);
+            iterationCount += 1;
+        }
+        }
+    } while (iterationCount);
+
 for (int i = 0; i < size; i++){
     printf("%d ", Array[i]);
 }
